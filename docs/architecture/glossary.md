@@ -96,9 +96,11 @@ is the preferred architectural term.
 
 # Goal
 
-A shared operational outcome that one or more participants seek to achieve.
+A measurable operational outcome contributing to the completion of a mission
 
-Goals SHALL define the desired result rather than the implementation.
+Goals define what must be acheived but do not define why the work exists.
+
+One Mission may contain multiple goals
 
 ---
 
@@ -144,13 +146,31 @@ Relays SHALL NOT become authoritative decision makers within collaborations.
 
 # Collaboration
 
-A coordinated activity involving two or more participants working towards one or more shared goals.
+A coordinated activity performed by Participants to achieve one or more goals
 
 ---
 
-# collaboration Instance
+# Collaboration Instance
 
-A specific execution of a collaboration process.
+A specific execution of a Collaboration associated with one or more Goals within a Mission.
+
+---
+
+# Mission
+
+An authorised unit of work initiated by a requestor that defines operational intent and governance for one or more goals
+
+A Mission specifies:
+
+   "requesting authority"
+   "objectives"
+   "constraints"
+   "priorities"
+   "policies"
+   "success criteria"
+
+A Mission may contain one or more goals
+
 ---
 
 # Lifecycle

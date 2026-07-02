@@ -8,7 +8,7 @@
 
 Ntangl is an open standards initiative developing the architecture, protocols, reference implementations and governance required for secure collaboration between Embodied AI participants.
 
-The objective is to enable Embodied AI participants from different manufacturers, owners and deployment environments to securely discover one another, establish trust, exchange capabilities and operational context, agree shared goals, allocate work, collaborate safely and complete tasks without proprietary integration.
+The objective is to enable Embodied AI participants from different manufacturers, owners and deployment environments to securely discover one another, establish trust, exchange capabilities and operational context, participate in Missions by achieving one or more Goals, allocate work, collaborate safely and complete tasks without proprietary integration.
 
 Ntangl is intended to become the common interoperability layer for Embodied AI in the same way that Internet standards enabled interoperability between heterogeneous computer networks.
 

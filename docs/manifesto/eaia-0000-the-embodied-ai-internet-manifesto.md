@@ -80,7 +80,9 @@ The physical world lacks an open collaboration layer comparable to the role that
 
 # Vision
 
-Enable any Participant implementing the Ntangl architecture to securely collaborate with any other Participant regardless of manufacturer, ownership or deployment environmen
+Enable any Participant implementing the Ntangl architecture to securely collaborate with any other Participant regardless of manufacturer, ownership or deployment environment
+
+Collaborate to achieve shared operational goals within authorised Missions.
 
 ---
 
@@ -129,6 +131,8 @@ These remain implementation choices.
 The long-term objective of Ntangl is to establish an open, vendor-neutral collaboration standard for Embodied AI.
 
 By providing common mechanisms for identity, trust, capability exchange, context sharing and collaboration, Ntangl seeks to reduce integration effort, encourage interoperability and enable new classes of collaborative applications.
+
+Collaborate to achieve shared operational goals within authorised Missions.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 document: AP-0006
-title: Goal-Oriented Collaboration
+title: Mission Oriented Collaboration
 status: Working Draft
 maturity: Foundation
 version: 0.1.0
