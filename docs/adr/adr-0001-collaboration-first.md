@@ -86,6 +86,16 @@ Every protocol specification SHALL explicitly identify which stages of the lifec
 
 No protocol SHALL exist without a clear relationship to the lifecycle.
 
+
+## Operational Flexibility
+
+The Collaborative Interaction Lifecycle (CIL) defines the canonical sequence of activities required to establish and complete collaboration between participants.
+
+Implementations MAY optimise or combine individual stages of the lifecycle where equivalent security, safety and interoperability guarantees are preserved.
+
+Such optimisations SHALL NOT alter the architectural intent of the lifecycle and SHALL remain interoperable with implementations that follow the canonical sequence.
+
+The CIL therefore defines the reference model for collaboration rather than a mandatory message exchange sequence.
 ---
 
 # Rationale

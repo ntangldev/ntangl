@@ -58,12 +58,11 @@ Without verifiable identity, secure collaboration cannot be established.
 
 # Implications
 
-Identity precedes:
+Participants SHALL possess a verifiable identity before entering into collaborative commitments.
 
-- trust establishment
-- capability exchange
-- context exchange
-- goal negotiation
+Identity evaluation MAY occur explicitly during collaboration establishment or implicitly through existing trust relationships, cached credentials or trust domain membership.
+
+Regardless of implementation, participants SHALL be able to demonstrate a verifiable identity before collaboration proceeds beyond the establishment phase.
 
 ---
 

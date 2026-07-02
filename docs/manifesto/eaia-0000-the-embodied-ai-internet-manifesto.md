@@ -90,6 +90,10 @@ Ntangl is founded upon several architectural principles.
 
 These principles are expanded in dedicated architecture documents and applied consistently throughout the protocol specifications.
 
+The architectural principles define enduring characteristics of the Ntangl architecture.
+
+Operational models, including the Collaborative Interaction Lifecycle, provide canonical guidance for protocol design but do not prescribe specific implementation strategies unless explicitly stated by a normative specification.
+
 The initial principles are:
 
 - Collaboration First

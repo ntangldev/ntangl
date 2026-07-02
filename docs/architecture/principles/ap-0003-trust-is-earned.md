@@ -63,6 +63,10 @@ Trust evaluation SHOULD support:
 - policy evaluation
 - delegation
 - revocation
+- cached trust assertions
+- trust domain membership
+
+Trust MAY be evaluated before, during or after identity verification depending upon deployment architecture, provided collaboration is established only after both identity and trust requirements have been satisfied.
 
 ---
 

@@ -118,7 +118,9 @@ A coordinated activity involving two or more participants working towards one or
 
 # Collaborative Interaction Lifecycle (CIL)
 
-The canonical lifecycle followed by participants during collaboration.
+The canonical operational model describing the activities required to establish, execute and complete collaboration between participants.
+
+The reference lifecycle is:
 
 1. Discover
 2. Identify
@@ -130,6 +132,10 @@ The canonical lifecycle followed by participants during collaboration.
 8. Execute
 9. Monitor
 10. Complete
+
+The lifecycle defines a conceptual sequence rather than a mandatory protocol exchange.
+
+Implementations MAY optimise, combine or reorder individual activities where interoperability, security and safety are preserved.
 
 ---
 
