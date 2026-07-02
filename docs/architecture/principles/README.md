@@ -63,6 +63,7 @@ These principles evolve slowly and provide the rationale for architectural and p
 | AP-0006 | Goal-Oriented Collaboration |
 | AP-0007 | Safety Before Optimisation |
 | AP-0008 | Open by Design |
+| AP-0009 | Operational Separation of Concerns |
 
 ---
 
