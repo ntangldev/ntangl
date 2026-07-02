@@ -57,7 +57,7 @@ Embodied AI systems are becoming increasingly capable and are beginning to opera
 
 While individual systems continue to advance rapidly, collaboration between systems from different manufacturers remains fragmented by proprietary interfaces and closed ecosystems.
 
-Ntangl proposes a common collaboration architecture that enables Embodied AI participants to securely discover one another, establish trust, exchange capabilities and operational context, agree shared goals and collaborate safely without proprietary integration.
+Ntangl proposes a common collaboration architecture that enables participants to securely discover one another, establish trust, exchange capabilities and operational context, agree shared goals and collaborate safely without proprietary integration.
 
 ---
 
@@ -80,7 +80,7 @@ The physical world lacks an open collaboration layer comparable to the role that
 
 # Vision
 
-Enable any Embodied AI participant to securely collaborate with any other participant regardless of manufacturer, ownership or deployment environment.
+Enable any Participant implementing the Ntangl architecture to securely collaborate with any other Participant regardless of manufacturer, ownership or deployment environmen
 
 ---
 
@@ -109,7 +109,7 @@ The initial principles are:
 
 # Scope
 
-Ntangl defines the architecture required to enable secure collaboration between Embodied AI participants.
+Ntangl defines the architecture required to enable secure collaboration between participants.
 
 Ntangl does not define:
 

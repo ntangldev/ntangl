@@ -49,7 +49,7 @@ No optimisation SHALL compromise operational safety.
 
 # Rationale
 
-Embodied AI participants operate within the physical world.
+Participants operate within the physical world.
 
 Failures have physical consequences.
 

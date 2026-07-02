@@ -141,7 +141,7 @@ They SHALL NOT be interpreted as mandatory protocol message sequences unless exp
 
 # Implementation Independence
 
-Conforming implementations MAY:
+Participants MAY:
 
 - combine lifecycle stages
 - optimise internal processing

@@ -49,7 +49,7 @@ Trust SHALL be established through verifiable evidence rather than assumed from 
 
 # Rationale
 
-Embodied AI participants frequently collaborate across organisational and operational boundaries.
+Participants frequently collaborate across organisational and operational boundaries.
 
 Trust mechanisms must therefore be portable, verifiable and policy-driven.
 

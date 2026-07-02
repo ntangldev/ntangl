@@ -57,9 +57,9 @@ All protocol specifications SHALL be designed to support the Collaborative Inter
 
 Traditional networking protocols focus primarily on transporting information between endpoints.
 
-While reliable communication is essential, communication alone does not enable meaningful collaboration between Embodied AI participants.
+While reliable communication is essential, communication alone does not enable meaningful collaboration between participants.
 
-Embodied AI participants must also:
+Participants must also:
 
 - discover one another
 - establish identity

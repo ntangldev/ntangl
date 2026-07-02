@@ -45,7 +45,7 @@ Working Draft.
 
 # Principle
 
-The primary purpose of Ntangl is to enable secure collaboration between Embodied AI participants.
+The primary purpose of Ntangl is to enable secure collaboration between participants.
 
 Communication is a supporting capability rather than the architectural objective.
 

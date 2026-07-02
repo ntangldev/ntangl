@@ -52,29 +52,53 @@ This glossary establishes the canonical terminology used throughout the Ntangl S
 
 ---
 
+# Foundational Concepts
+
+---
+
+# Participant
+
+The logical network identity recognised by Ntangl.
+
+A Participant represents the entity that
+discovers,
+establishes trust,
+declares capabilities,
+shares context,
+accepts commitments,
+and participates in collaboration.
+
+A Participant may represent:
+
+• one embodied intelligence
+• multiple coordinated embodiments
+• a fleet
+• infrastructure
+• future implementation models
+
+---
+
 # Embodied AI
 
-Software-defined intelligence embodied within one or more physical systems capable of interacting with the physical world.
+Historical industry term.
+
+Within Ntangl, Embodied Intelligence
+is the preferred architectural term.
 
 ---
 
-# Embodied AI Participant
+# Embodied Intelligence
 
-A uniquely identifiable network participant that possesses:
-
-- a persistent identity
-- declared capabilities
-- operational context
-
-and is capable of participating in collaborative activities.
+---
+# Embodiment
 
 ---
 
-# Sovereign Participant
+# Goal
 
-A participant that maintains authority over its own identity, local state and interaction decisions while operating within the governance policies imposed by its owner, operator and deployment environment.
+A shared operational outcome that one or more participants seek to achieve.
 
-Sovereignty is an architectural property and does not imply legal personhood, consciousness or moral agency.
+Goals SHALL define the desired result rather than the implementation.
 
 ---
 
@@ -102,11 +126,19 @@ Context MAY include:
 
 ---
 
-# Goal
+# Trust Domain
 
-A shared operational outcome that one or more participants seek to achieve.
+A set of participants operating under a common trust policy.
 
-Goals SHALL define the desired result rather than the implementation.
+Trust domains MAY overlap.
+
+---
+
+# Relay
+
+A network service that assists participants with discovery and communication where direct peer-to-peer connectivity is unavailable.
+
+Relays SHALL NOT become authoritative decision makers within collaborations.
 
 ---
 
@@ -116,7 +148,12 @@ A coordinated activity involving two or more participants working towards one or
 
 ---
 
-# Collaborative Interaction Lifecycle (CIL)
+# collaboration Instance
+
+A specific execution of a collaboration process.
+---
+
+# Lifecycle
 
 The canonical operational model describing the activities required to establish, execute and complete collaboration between participants.
 
@@ -139,19 +176,7 @@ Implementations MAY optimise, combine or reorder individual activities where int
 
 ---
 
-# Trust Domain
-
-A set of participants operating under a common trust policy.
-
-Trust domains MAY overlap.
-
----
-
-# Relay
-
-A network service that assists participants with discovery and communication where direct peer-to-peer connectivity is unavailable.
-
-Relays SHALL NOT become authoritative decision makers within collaborations.
+# Protocol Concepts
 
 ---
 
