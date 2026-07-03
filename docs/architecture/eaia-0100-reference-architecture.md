@@ -71,11 +71,13 @@ Normative protocol behaviour is defined by the EAIP specification series.
 
 # Abstract
 
-The Ntangl Reference Architecture defines the conceptual model for secure collaboration between autonomous participants operating across organisational, technological and geographical boundaries.
+The Ntangl Reference Architecture defines the conceptual architecture for secure collaboration between autonomous Participants operating across organisational, technological and geographical boundaries.
 
-Rather than prescribing implementation techniques, this architecture establishes the architectural objects, relationships and interaction patterns required to enable interoperable collaboration.
+Rather than prescribing implementation techniques, the architecture establishes the first-class architectural objects, their relationships and the interaction models required to enable interoperable collaboration.
 
-The reference architecture serves as the foundation for all Ntangl protocol specifications, reference implementations and certification programmes.
+Ntangl is fundamentally an architecture for collaboration. Communication, identity, trust and protocol exchange exist to support collaborative execution rather than constituting the architectural objective themselves.
+
+The reference architecture provides the foundation upon which all Ntangl protocol specifications, reference implementations and certification programmes are built.
 
 ---
 
@@ -92,23 +94,29 @@ The architecture SHALL:
 - define collaboration at an architectural level
 - provide a stable foundation for protocol development
 
-The architecture intentionally avoids prescribing implementation techniques.
+The architecture intentionally defines *what* interoperable systems are required to represent and accomplish, while avoiding unnecessary constraints on *how* those outcomes are implemented.
+
+Implementation behaviour is specified by the EAIP protocol series.
 
 ---
 
 # 2. Scope
 
-The architecture defines:
+The architecture defines the following first-class architectural objects:
 
-- Participants
-- Identity
-- Trust
-- Goals
-- Capabilities
-- Context
-- Collaboration
-- Trust Domains
-- Relay Services
+* Mission
+* Goal
+* Collaboration
+* Collaboration Instance
+* Participant
+* Capability
+* Context
+* Trust Relationship
+* Policy
+* Trust Domain
+* Relay
+
+The architecture also defines the relationships between these objects and the architectural principles governing their interaction.
 
 The architecture does not define:
 
@@ -140,6 +148,18 @@ The architecture pursues the following objectives:
 - vendor neutrality
 
 These objectives are realised through the Architectural Principles and Design Goals defined elsewhere within the repository.
+
+---
+
+## 3.1 Collaboration as the Primary Architectural Concern
+
+The primary architectural concern of Ntangl is collaboration.
+
+Communication, networking, identity, trust and policy exist to enable Participants to collaborate safely and effectively towards shared operational outcomes.
+
+Consequently, the architecture is organised around operational intent, collaboration and execution rather than protocol layering alone.
+
+This distinction separates Ntangl from traditional networking architectures, which primarily standardise communication rather than collaborative behaviour.
 
 ---
 
@@ -191,17 +211,23 @@ Every protocol specification SHOULD identify the principles that it implements.
 
 # 6. Reference Architecture
 
-The Ntangl architecture is centred upon collaboration rather than communication.
+The Ntangl architecture is centred upon collaborative execution.
 
-Communication is an enabling capability.
+Mission provides operational intent.
 
-Collaboration is the architectural objective.
+Goals define measurable outcomes.
 
-Every collaboration consists of a collection of Participants working towards one or more shared Goals.
+Collaboration provides the mechanism through which Participants cooperate to achieve those Goals.
 
-Participants establish trust relationships, exchange capabilities and operational context, allocate responsibilities and coordinate execution.
+Collaboration Instances represent the execution of collaborative activities.
 
-This interaction is independent of manufacturer, deployment technology and implementation language.
+Participants contribute Capabilities while continuously publishing operational Context.
+
+Trust Relationships and Policies govern participation.
+
+Relay services support communication where direct connectivity is unavailable.
+
+The architecture deliberately separates governance, operational outcomes, collaborative execution and implementation concerns, allowing each to evolve independently while preserving interoperability.
 
 ---
 
@@ -209,53 +235,93 @@ This interaction is independent of manufacturer, deployment technology and imple
 
 The architecture defines the following first-class objects.
 
-| Object | Purpose |
-|----------|----------|
-| Mission | Authorised unit of work initiated by a requestor |
-| Participant | Network-visible collaborator |
-| Goal | Desired operational outcome |
-| Capability | Declared ability |
-| Context | Current operational state |
-| Collaboration | Coordinated activity |
-| Collaboration Instance | A specific execution of collaboration |
-| Trust Relationship | Evidence supporting interaction |
-| Policy | Rules governing behaviour |
-| Trust Domain | Administrative trust boundary |
-| Relay | Infrastructure service supporting connectivity |
+| Object                 | Purpose                                              |
+| ---------------------- | ---------------------------------------------------- |
+| Mission                | Defines operational intent and governance            |
+| Goal                   | Defines measurable operational outcomes              |
+| Collaboration          | Defines coordinated activity between Participants    |
+| Collaboration Instance | Represents one execution of collaborative activity   |
+| Participant            | Represents a network-visible collaborating entity    |
+| Capability             | Describes potential ability                          |
+| Context                | Describes current operational readiness              |
+| Trust Relationship     | Provides evidence supporting collaboration decisions |
+| Policy                 | Defines behavioural constraints                      |
+| Trust Domain           | Defines administrative trust boundaries              |
+| Relay                  | Provides supporting communication infrastructure     |
 
-These objects form the common vocabulary of the architecture.
+These objects collectively define the semantic foundation of the Ntangl architecture.
 
-Detailed definitions are provided in EAIA-0102.
+Their detailed semantics are specified in **EAIA-0102 – Architectural Object Model**.
 
 ---
 
 # 8. Object Relationships
 
-At a conceptual level:
+The Ntangl architecture organises collaboration through the following conceptual hierarchy:
 
-- Missions define one or more goals
-- Goals define a desired outcome
-- Collaboration Instances exist to achieve one or more Goals.
-- Participants belong to one or more Trust Domains.
-- Participants possess Capabilities.
-- Participants maintain operational Context.
-- Participants participate in Collaboration Instances.
-- Capabilities
-- Context
+```text
+Mission
+    │
+    ├── Goal(s)
+    │       │
+    │       └── Collaboration Instance(s)
+    │                    │
+    │                    └── Participant(s)
+    │                              │
+    │                              ├── Capability
+    │                              ├── Context
+    │                              └── Policy
+    │
+    └── Success Criteria
+```
 
-The architecture intentionally avoids prescribing implementation mechanisms for these relationships.
+This hierarchy represents conceptual ownership and responsibility.
+
+It SHALL NOT be interpreted as an implementation architecture or protocol message sequence.
+
+Architectural Objects are semantic concepts that MAY be represented differently by different protocol specifications while preserving common architectural meaning.
+
+---
+
+## 8.1 Conceptual Pairing
+
+The first-class architectural objects form complementary conceptual pairs that separate operational intent from execution.
+
+| Intent     | Execution              |
+| ---------- | ---------------------- |
+| Mission    | Collaboration          |
+| Goal       | Collaboration Instance |
+| Capability | Context                |
+
+These pairings are fundamental to the Ntangl architecture.
+
+Mission defines *why* work exists.
+
+Goal defines *what* must be achieved.
+
+Collaboration defines *how* Participants cooperate.
+
+Collaboration Instance defines *how collaboration is being executed at a specific point in time*.
+
+Capability defines *what a Participant is capable of*.
+
+Context defines *what a Participant is currently able to contribute*.
+
+Maintaining this separation of concerns enables independent evolution of governance, planning, execution and operational state while preserving interoperability.
 
 ---
 
 # 9. Collaboration
 
-Missions define the operational intent
+Collaboration is the operational mechanism through which Participants cooperate to achieve one or more Goals within the context of a Mission.
 
-Goals define desired outcomes
+A Collaboration Instance represents the execution of collaborative behaviour by a specific group of Participants.
 
-Collaboration provides the mechanism through which Participants cooperate to achieve those goals
+Participants MAY dynamically join or leave Collaboration Instances subject to applicable Mission governance, Policies and Trust Relationships.
 
-Collaboration Instances represent specific executions of that collaboration
+The Collaborative Interaction Lifecycle defines the canonical operational model for establishing, executing and completing Collaboration Instances.
+
+Implementations MAY optimise this lifecycle provided interoperability, security and safety are preserved.
 
 ---
 
@@ -331,13 +397,16 @@ New protocols, capabilities and services MAY be introduced without modifying the
 
 Subsequent architecture documents expand upon:
 
-- Architectural Object Model
-- Layer Model
-- Collaboration Model
-- Identity Architecture
-- Trust Architecture
+* Architectural Object Model
+* Layer Model
+* Collaboration Model
+* Identity Architecture
+* Trust Architecture
+* Mission Model
+* Policy Model
 
-The EAIP protocol specifications define interoperable behaviour implementing these concepts.
+The EAIP protocol specifications define interoperable representations and behaviours for the architectural concepts established by the EAIA series.
+
 
 ---
 
