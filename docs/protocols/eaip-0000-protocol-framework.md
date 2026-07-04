@@ -84,7 +84,18 @@ This document establishes the common protocol model for EAIP, including artefact
 
 EAIP protocols do not define new architectural concepts.
 
-They define interoperable ways to represent, exchange, validate, observe, and transition the architectural objects defined by EAIA.
+EAIP protocols define interoperable representations and operations for the Architectural Objects defined by the EAIA series.
+
+The protocol framework recognises six primary protocol artefact classes:
+
+* Object
+* Command
+* Response
+* Event
+* Query
+* Document
+
+These artefact classes provide a consistent semantic model for all EAIP protocol specifications.
 
 ---
 
@@ -94,12 +105,12 @@ The purpose of this document is to define the common foundation for all EAIP pro
 
 EAIP-0000 SHALL establish:
 
-- the relationship between EAIA and EAIP
-- the common artefact classes used by the protocol suite
-- the common protocol operation model
-- the distinction between Commands, Events, Queries, Objects, and Documents
-- shared conformance expectations
-- baseline protocol design constraints
+* the relationship between EAIA and EAIP
+* the common protocol artefact classes
+* the common protocol operation model
+* the distinction between Objects, Commands, Responses, Events, Queries and Documents
+* shared conformance expectations
+* baseline protocol design constraints
 
 ---
 
@@ -161,15 +172,16 @@ EAIP protocols SHOULD be usable across direct peer-to-peer, relay-assisted, and 
 
 EAIP recognises five primary artefact classes.
 
-| Artefact | Purpose |
-|----------|---------|
-| Object | Persistent architectural entity |
-| Command | Request to perform an action or cause a state transition |
-| Event | Immutable fact recording something that occurred |
-| Query | Request for information without state change |
-| Document | External supporting artefact referenced by the protocol |
+| Artefact | Purpose                                                   |
+| -------- | --------------------------------------------------------- |
+| Object   | Persistent architectural entity                           |
+| Command  | Request to perform an action or cause a state transition  |
+| Response | Immediate outcome of processing a Command or Query        |
+| Event    | Immutable fact recording something that occurred          |
+| Query    | Request for information without requesting a state change |
+| Document | External supporting artefact referenced by the protocol   |
 
-These artefact classes SHALL be used consistently across the EAIP suite.
+These artefact classes SHALL be used consistently throughout the EAIP protocol suite.
 
 ---
 
@@ -233,11 +245,50 @@ Command formats are defined by object-specific EAIP specifications.
 
 ---
 
-# 8. Event
+# 8. Response
 
-An Event records fact.
+A Response communicates the outcome of processing a Command or Query.
 
-An Event is an immutable statement that something occurred.
+Responses describe the result of protocol processing.
+
+Responses SHALL NOT be interpreted as evidence that an architectural state transition has occurred.
+
+Typical Response outcomes include:
+
+* Accepted
+* Rejected
+* Completed
+* Deferred
+* Unsupported
+* Invalid
+* Not Authorised
+* Conflict
+* Timeout
+* Error
+
+A Response SHOULD identify:
+
+* response identifier
+* related Command or Query
+* processing outcome
+* responding authority
+* timestamp
+* correlation identifier
+* optional diagnostic information
+
+Responses MAY be followed by one or more Events if processing results in observable architectural state transitions.
+
+---
+
+# 9. # Event
+
+An Event records an immutable architectural fact.
+
+Events are produced as the consequence of successful or otherwise observable state transitions.
+
+Events SHALL NOT be generated solely because a Command or Query was received.
+
+Events represent completed facts rather than processing outcomes.
 
 Events SHALL NOT request behaviour.
 
@@ -273,7 +324,7 @@ Event formats are defined by later EAIP specifications.
 
 ---
 
-# 9. Query
+# 10. Query
 
 A Query requests information without requesting state change.
 
@@ -301,7 +352,7 @@ Queries MAY be subject to policy, trust, privacy, and access control constraints
 
 ---
 
-# 10. Document
+# 11. Document
 
 A Document is an external supporting artefact referenced by EAIP but not governed directly by the architectural object model.
 
@@ -339,9 +390,11 @@ They are not Architectural Objects unless explicitly represented as such by a fu
 
 ---
 
-# 11. Operation Model
+# 12. Operation Model
 
-EAIP protocols generally perform one or more of the following operation classes.
+EAIP protocols generally operate by exchanging Commands, Responses, Queries and Events while creating, reading, updating, referencing and observing Architectural Objects.
+
+Documents provide supporting information but are not themselves governed by the Architectural Object Model.
 
 ## Create
 
@@ -375,13 +428,19 @@ Object-specific EAIP specifications SHALL define valid operations.
 
 ---
 
-# 12. State Transitions
-
-EAIP protocols SHALL preserve the state semantics defined by EAIA-0103.
+# 13. State Transitions
 
 Commands MAY request state transitions.
 
-Events SHOULD record completed state transitions.
+Responses communicate whether processing of the request was accepted, rejected, deferred or otherwise completed.
+
+Events SHOULD record successful or otherwise observable state transitions.
+
+Not every accepted Command results in an immediate Event.
+
+Not every Response results in an Event.
+
+Protocol specifications SHALL define the relationship between Commands, Responses and Events for each operation.
 
 State transitions SHALL be validated before completion.
 
@@ -397,7 +456,7 @@ Validation MAY include:
 
 ---
 
-# 13. Interaction Semantics
+# 14. Interaction Semantics
 
 EAIP protocols SHALL preserve the interaction semantics defined by EAIA-0104.
 
@@ -407,7 +466,7 @@ Implementations MAY optimise interaction sequences provided observable behaviour
 
 ---
 
-# 14. Event Semantics
+# 15. Event Semantics
 
 EAIP protocols SHALL preserve the event semantics defined by EAIA-0105.
 
@@ -419,7 +478,7 @@ Event publication and delivery guarantees are defined by later EAIP specificatio
 
 ---
 
-# 15. Identity and Authority
+# 16. Identity and Authority
 
 Every Command, Event, Query, and Object representation SHOULD be attributable to an authority.
 
@@ -436,9 +495,11 @@ Authority representation is defined by later EAIP identity and addressing specif
 
 ---
 
-# 16. Correlation
+# 17. Correlation
 
-EAIP operations SHOULD support correlation between Commands, Events, Queries, and resulting Objects.
+EAIP operations SHOULD support correlation between Commands, Responses, Events, Queries and the resulting Architectural Objects.
+
+Correlation enables complete reconstruction of distributed interactions from request through completion.
 
 Correlation enables:
 
@@ -452,7 +513,7 @@ A later EAIP specification SHALL define the common correlation model.
 
 ---
 
-# 17. Idempotency
+# 18. Idempotency
 
 EAIP protocols SHOULD support idempotent operation where practical.
 
@@ -462,29 +523,19 @@ Object-specific protocols SHALL define idempotency requirements.
 
 ---
 
-# 18. Errors
+# 19. Error Handling
 
-EAIP protocols SHALL define explicit error responses for failed operations.
+Malformed Commands, Queries and other protocol artefacts SHALL result in appropriate Responses.
 
-Errors SHOULD distinguish between:
+Errors SHALL be represented using the Response model.
 
-- validation failure
-- authorisation failure
-- trust failure
-- policy rejection
-- unavailable capability
-- unsuitable context
-- timeout
-- conflict
-- unsupported operation
-- malformed request
-- internal failure
+Errors SHALL NOT be represented as Events unless an architectural state transition has occurred.
 
-A later EAIP specification SHALL define the common error model.
+The common Response and Error Model is defined by EAIP-0005.
 
 ---
 
-# 19. Versioning
+# 20. Versioning
 
 EAIP specifications SHALL be versioned.
 
@@ -496,7 +547,7 @@ Version negotiation is defined by a later EAIP specification.
 
 ---
 
-# 20. Extensibility
+# 21. Extensibility
 
 EAIP protocols MAY support extensions.
 
@@ -508,7 +559,7 @@ Implementations receiving unknown extensions SHOULD ignore them unless the exten
 
 ---
 
-# 21. Transport Independence
+# 22. Transport Independence
 
 EAIP is transport independent.
 
@@ -522,7 +573,7 @@ The architecture SHALL NOT require iroh as the only possible transport.
 
 ---
 
-# 22. Security Requirements
+# 23. Security Requirements
 
 EAIP protocols SHALL support security requirements appropriate to their function.
 
@@ -540,7 +591,7 @@ Security mechanisms are defined by later EAIP specifications.
 
 ---
 
-# 23. Privacy Requirements
+# 24. Privacy Requirements
 
 EAIP protocols SHOULD minimise unnecessary disclosure.
 
@@ -556,7 +607,7 @@ Privacy requirements MAY vary by deployment profile.
 
 ---
 
-# 24. Conformance
+# 25. Conformance
 
 EAIP conformance SHALL be evaluated according to EAIA-0199.
 
@@ -573,44 +624,43 @@ Protocol-specific conformance requirements are defined in each EAIP specificatio
 
 ---
 
-# 25. Protocol Specification Requirements
+# 26. Protocol Specification Requirements
 
 Every EAIP protocol specification SHOULD include:
 
-- purpose
-- scope
-- dependencies
-- supported artefact classes
-- object model references
-- command definitions
-- event definitions
-- query definitions
-- state transition rules
-- validation rules
-- error conditions
-- security considerations
-- privacy considerations
-- conformance requirements
-- examples
-- change history
+* purpose
+* scope
+* supported Architectural Objects
+* supported Commands
+* supported Responses
+* supported Events
+* supported Queries
+* supported Document references
+* state transition rules
+* validation rules
+* security considerations
+* privacy considerations
+* conformance requirements
+* examples
+* change history
 
 ---
 
-# 26. Initial EAIP Roadmap
+# 27. Initial EAIP Roadmap
 
 The initial EAIP foundation is expected to include:
 
-- EAIP-0001 Common Message Envelope
-- EAIP-0002 Object Representation
-- EAIP-0003 Identity and Addressing
-- EAIP-0004 Correlation and Conversation Model
-- EAIP-0005 Error Model
-- EAIP-0006 Version Negotiation
-- EAIP-0007 Event Framework
-- EAIP-0008 Discovery Framework
-- EAIP-0009 Security Framework
+* EAIP-0001 Common Message Model
+* EAIP-0002 Object Representation Model
+* EAIP-0003 Identity and Addressing
+* EAIP-0004 Correlation and Conversation Model
+* EAIP-0005 Response and Error Model
+* EAIP-0006 Version Negotiation
+* EAIP-0007 Event Framework
+* EAIP-0008 Discovery Framework
+* EAIP-0009 Security Framework
 
-Object-specific protocols are expected to follow.
+Object-specific protocols are expected to build upon these common specifications.
 
 ---
 
