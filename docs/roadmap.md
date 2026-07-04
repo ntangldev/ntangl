@@ -1,60 +1,34 @@
-Foundation
+Architecture Baseline 1.0           ✓
 
-EAIP-0000 Protocol Framework
+Protocol Framework                  ✓
 
-EAIP-0001 Common Message Model
+Foundation Protocols
 
-EAIP-0002 Object Representation Model
+    □ EAIP-0002 Object Representation
+    □ EAIP-0003 Identity & Addressing
+    □ EAIP-0004 Correlation & Conversation
+    □ EAIP-0005 Response & Error
+    □ EAIP-0006 Version Negotiation
+    □ EAIP-0007 Event Framework
+    □ EAIP-0008 Discovery Framework
+    □ EAIP-0009 Security Framework
 
-EAIP-0003 Identity and Addressing
+Object Protocols
 
-EAIP-0004 Correlation and Conversation Model
+    □ Participant
+    □ Mission
+    □ Goal
+    □ Collaboration
+    □ Capability
+    □ Context
+    □ Trust Relationship
+    □ Policy
+    □ Trust Domain
 
-EAIP-0005 Response and Error Model
+Reference SDK
 
-EAIP-0006 Version Negotiation
+Certification
 
-EAIP-0007 Event Framework
+Industry Profiles
 
-EAIP-0008 Discovery Framework
-
-EAIP-0009 Security Framework
-
-Infrastructure Service Protocols
-
-EAIP-1000 Discovery Service
-
-EAIP-1100 Identity Resolution Service
-
-EAIP-1200 Object Resolution Service
-
-EAIP-1300 Trust Evaluation Service
-
-EAIP-1400 Policy Evaluation Service
-
-EAIP-1500 Relay Service
-
-EAIP-1600 Event Distribution Service
-
-EAIP-1700 Audit Service
-
-Architectural Object Protocols
-
-EAIP-2000 Participant
-
-EAIP-2100 Mission
-
-EAIP-2200 Goal
-
-EAIP-2300 Collaboration
-
-EAIP-2400 Capability
-
-EAIP-2500 Context
-
-EAIP-2600 Trust Relationship
-
-EAIP-2700 Policy
-
-EAIP-2800 Trust Domain
-
+Reference Implementations
