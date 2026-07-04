@@ -110,6 +110,10 @@ It intentionally excludes:
 - APIs
 - implementation techniques
 
+Architectural Infrastructure Services participate in interactions by enabling collaboration.
+
+They SHALL NOT redefine the interaction semantics established for Architectural Objects.
+
 ---
 
 # 3. Interaction Principles

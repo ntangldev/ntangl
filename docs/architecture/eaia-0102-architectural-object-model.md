@@ -89,22 +89,20 @@ This document intentionally avoids defining protocol message formats.
 
 # 2. Scope
 
-This document defines:
+This document defines the following first-class Architectural Objects:
 
-- Mission
-- Goal
-- Collaboration
-- Collaboration Instance
-- Participant
+* Mission
+* Goal
+* Collaboration
+* Collaboration Instance
+* Participant
+* Capability
+* Context
+* Trust Relationship
+* Policy
+* Trust Domain
 
-Subsequent revisions define:
-
-- Capability
-- Context
-- Trust Relationship
-- Policy
-- Trust Domain
-- Relay
+Architectural Infrastructure Services are defined separately in **EAIA-0107**.
 
 ---
 
@@ -963,7 +961,6 @@ Trust Relationships MAY exist between:
 
 - Participant ↔ Participant
 - Participant ↔ Trust Domain
-- Participant ↔ Relay
 - Trust Domain ↔ Trust Domain
 
 Trust Relationships influence:
@@ -1059,6 +1056,8 @@ Ntangl intentionally does not mandate a single trust model.
 Future protocol specifications SHALL define interoperable representations of trust evidence while preserving implementation independence.
 
 ---
+Infrastructure capabilities that support these Architectural Objects are defined by **EAIA-0107 – Architectural Infrastructure Services Model** and are intentionally excluded from the Architectural Object Model.
+
 ---
 
 # References

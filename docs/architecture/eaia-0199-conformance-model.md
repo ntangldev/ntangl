@@ -171,6 +171,10 @@ An Architecture Conformant implementation SHALL:
 
 Architecture Conformance does not require implementation of any specific protocol.
 
+Architecture Conformance requires correct implementation of the Architectural Object Model.
+
+Implementation of Architectural Infrastructure Services is only required where claimed by a corresponding protocol profile or certification programme.
+
 ---
 
 # 6. Protocol Conformance

@@ -235,19 +235,20 @@ The architecture deliberately separates governance, operational outcomes, collab
 
 The architecture defines the following first-class objects.
 
-| Object                 | Purpose                                              |
-| ---------------------- | ---------------------------------------------------- |
-| Mission                | Defines operational intent and governance            |
-| Goal                   | Defines measurable operational outcomes              |
-| Collaboration          | Defines coordinated activity between Participants    |
-| Collaboration Instance | Represents one execution of collaborative activity   |
-| Participant            | Represents a network-visible collaborating entity    |
-| Capability             | Describes potential ability                          |
-| Context                | Describes current operational readiness              |
-| Trust Relationship     | Provides evidence supporting collaboration decisions |
-| Policy                 | Defines behavioural constraints                      |
-| Trust Domain           | Defines administrative trust boundaries              |
-| Relay                  | Provides supporting communication infrastructure     |
+| Object                 | Purpose                                     |
+| ---------------------- | ------------------------------------------- |
+| Mission                | Operational intent and governance           |
+| Goal                   | Measurable operational outcome              |
+| Collaboration          | Coordinated activity                        |
+| Collaboration Instance | Execution of collaborative behaviour        |
+| Participant            | Network-visible collaborating entity        |
+| Capability             | Potential ability                           |
+| Context                | Current operational readiness               |
+| Trust Relationship     | Evidence supporting collaboration decisions |
+| Policy                 | Behavioural constraints                     |
+| Trust Domain           | Administrative trust boundary               |
+
+Architectural Infrastructure Services are defined separately in EAIA-0107.
 
 These objects collectively define the semantic foundation of the Ntangl architecture.
 
@@ -260,19 +261,38 @@ Their detailed semantics are specified in **EAIA-0102 – Architectural Object M
 The Ntangl architecture organises collaboration through the following conceptual hierarchy:
 
 ```text
-Mission
-    │
-    ├── Goal(s)
-    │       │
-    │       └── Collaboration Instance(s)
-    │                    │
-    │                    └── Participant(s)
-    │                              │
-    │                              ├── Capability
-    │                              ├── Context
-    │                              └── Policy
-    │
-    └── Success Criteria
+                 Mission
+                     │
+                     ▼
+                  Goal(s)
+                     │
+                     ▼
+             Collaboration
+                     │
+                     ▼
+        Collaboration Instance(s)
+                     │
+                     ▼
+               Participant(s)
+             ┌────────┴────────┐
+             ▼                 ▼
+        Capability         Context
+             │
+             ▼
+           Policy
+
+────────────────────────────────────────────
+
+Architectural Infrastructure Services
+
+• Discovery
+• Relay
+• Identity Resolution
+• Object Resolution
+• Trust Evaluation
+• Policy Evaluation
+• Event Distribution
+• Audit
 ```
 
 This hierarchy represents conceptual ownership and responsibility.

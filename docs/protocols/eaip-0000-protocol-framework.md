@@ -135,22 +135,14 @@ Those concerns are defined by later EAIP, CERT, and implementation guide documen
 
 # 3. Relationship to EAIA
 
-EAIA defines the architecture.
+EAIP defines interoperable protocol behaviour for:
 
-EAIP defines protocol behaviour.
+* Architectural Objects
+* Architectural Infrastructure Services
 
-EAIP specifications SHALL preserve the semantics of:
+Protocol operations affecting Architectural Objects SHALL preserve EAIA semantics.
 
-- EAIA-0100 Reference Architecture
-- EAIA-0102 Architectural Object Model
-- EAIA-0103 Operational State Model
-- EAIA-0104 Architectural Interaction Model
-- EAIA-0105 Architectural Event Model
-- EAIA-0199 Conformance Model
-
-EAIP specifications SHALL NOT redefine architectural objects.
-
-EAIP specifications MAY define representations of architectural objects.
+Protocol operations interacting with Architectural Infrastructure Services SHALL preserve service semantics without altering the architectural meaning of the underlying Objects.
 
 ---
 
@@ -182,6 +174,10 @@ EAIP recognises five primary artefact classes.
 | Document | External supporting artefact referenced by the protocol   |
 
 These artefact classes SHALL be used consistently throughout the EAIP protocol suite.
+
+Architectural Infrastructure Services are not protocol artefacts.
+
+They provide infrastructure capabilities supporting the exchange, discovery, validation and distribution of protocol artefacts.
 
 ---
 

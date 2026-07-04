@@ -89,19 +89,11 @@ All architectural object lifecycles SHOULD conform to this model.
 
 # 2. Scope
 
-This document applies to every first-class architectural object including:
+This document applies to all first-class Architectural Objects.
 
-- Mission
-- Goal
-- Collaboration
-- Collaboration Instance
-- Participant
-- Capability
-- Context
-- Trust Relationship
-- Policy
-- Trust Domain
-- Relay
+Architectural Infrastructure Services MAY implement independent operational lifecycles, but those lifecycles are implementation concerns unless otherwise standardised.
+
+Operational state semantics for Infrastructure Services are defined separately where required.
 
 ---
 

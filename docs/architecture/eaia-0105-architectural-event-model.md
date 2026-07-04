@@ -97,19 +97,9 @@ The Architectural Event Model SHALL:
 
 # 2. Scope
 
-This document applies to events associated with every first-class Architectural Object including:
+This document defines events relating to Architectural Objects.
 
-- Mission
-- Goal
-- Collaboration
-- Collaboration Instance
-- Participant
-- Capability
-- Context
-- Trust Relationship
-- Policy
-- Trust Domain
-- Relay
+Architectural Infrastructure Services MAY generate operational events, but those events are infrastructure observations rather than semantic Architectural Events unless explicitly defined by a future specification.
 
 ---
 
